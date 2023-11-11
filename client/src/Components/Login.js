@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import GoogleLogin from '@leecheuk/react-google-login';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
+import { gapi } from "gapi-script";
 
 export const Login = (props) => {       
     let navigate = useNavigate();
@@ -12,9 +13,18 @@ export const Login = (props) => {
     const onChange = (e)=>{
         setCredential(e.target.value);
     }
-    const responseGoogle = ()=>{
-        alert("Error Occured!")
-    }
+    const responseGoogle = (error) => {
+        console.log("Error Occurred:", error);
+    }      
+
+    let client_id = "86920111210-gbq6dsgp6058bpu9j1bg1gqq11a1jego.apps.googleusercontent.com";
+    
+    window.gapi.load('client:auth2', () => {
+        window.gapi.client.init({
+            clientId: client_id,
+            plugin_name: "chat"
+    })})
+
     const redirectLogin = async (response) =>{
         let user_data = {}
         if(response.profileObj){
@@ -104,7 +114,7 @@ export const Login = (props) => {
                         or continue with these social profile
                     </div>
                     <div className='flex flex-row justify-center items-center space-x-5'>
-                    <GoogleLogin clientId={props.client_id}
+                    <GoogleLogin clientId={client_id}
     render={renderProps => (
       <button onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="/assets/Google.svg" alt="" className='cursor-pointer' /></button>
     )}
@@ -112,6 +122,7 @@ export const Login = (props) => {
     onSuccess={redirectLogin}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
+    redirectUri='https://authentication-r92t.onrender.com/'
     />
                         
                     </div>

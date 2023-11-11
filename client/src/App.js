@@ -18,14 +18,12 @@ function App() {
   const fetchdata = ()=>{
     return(userdata);
   }
-  
   let client_id = "86920111210-gbq6dsgp6058bpu9j1bg1gqq11a1jego.apps.googleusercontent.com";
   
   return (
 
     <BrowserRouter>
     <Routes>
-        {/* <Route exact path = "/" element={<Navbar />} /> */}
         <Route exact path = "/" element={<><Navbar name={userdata.name} photo={userdata.photo} /><PersonalInfo setdata={setdata} userdata = {userdata} /></>} />
         <Route exact path = "/edit" element={<><Navbar /><EditInfo fetchdata = {fetchdata} /></>} />
         <Route exact path = "/login" element={<Login client_id={client_id} setdata={setdata} setauth={setauth} />} />
