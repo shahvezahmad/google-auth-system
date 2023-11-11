@@ -27,7 +27,7 @@ export const Login = (props) => {
             user_data.photo = (response.profileObj).imageUrl;
             // console.log(user_data);
             props.setdata(user_data);
-            const response1 = await fetch(`http://localhost:5000/api/auth/guser`, {
+            const response1 = await fetch(`https://gauth-server.onrender.com/api/auth/guser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export const Login = (props) => {
     }
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const response = await fetch(`http://localhost:5000/api/auth/login`, {
+        const response = await fetch(`https://gauth-server.onrender.com/api/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export const Login = (props) => {
         const json = await response.json();
         if(!json.error){
             localStorage.setItem('authentication-token',json.authToken);
-            const response1 = await fetch(`http://localhost:5000/api/auth/getuser`, {
+            const response1 = await fetch(`https://gauth-server.onrender.com/api/auth/getuser`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

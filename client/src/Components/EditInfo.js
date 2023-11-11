@@ -32,7 +32,7 @@ export const EditInfo = (props) => {
         e.preventDefault();
         const token=localStorage.getItem('authentication-token')
         
-        const response = await fetch(`http://localhost:5000/api/auth/edituser`, {
+        const response = await fetch(`https://gauth-server.onrender.com/api/auth/edituser`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -10,7 +10,7 @@ export const PersonalInfo = (props) => {
         navigate("/login");
       } else {
         try {
-          const response1 = await fetch(`http://localhost:5000/api/auth/getuser`, {
+          const response1 = await fetch(`https://gauth-server.onrender.com/api/auth/getuser`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

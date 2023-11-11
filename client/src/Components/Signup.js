@@ -30,7 +30,7 @@ export const Signup = () => {
     const signup = async (e)=>{
         e.preventDefault();
         
-        const response1 = await fetch(`http://localhost:5000/api/auth/createuser`, {
+        const response1 = await fetch(`https://gauth-server.onrender.com/api/auth/createuser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
