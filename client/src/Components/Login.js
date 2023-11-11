@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect} from 'react'
 import GoogleLogin from '@leecheuk/react-google-login';
 import { Link, useNavigate } from 'react-router-dom';
 import { gapi } from "gapi-script";
@@ -18,12 +18,16 @@ export const Login = (props) => {
     }      
 
     let client_id = "86920111210-gbq6dsgp6058bpu9j1bg1gqq11a1jego.apps.googleusercontent.com";
-    
+
+    useEffect(() => {
+    // Initialize gapi client
     window.gapi.load('client:auth2', () => {
-        window.gapi.client.init({
-            clientId: client_id,
-            plugin_name: "chat"
-    })})
+      window.gapi.client.init({
+        clientId: client_id,
+        plugin_name: "chat"
+      })
+    });
+    }, []);
 
     const redirectLogin = async (response) =>{
         let user_data = {}
