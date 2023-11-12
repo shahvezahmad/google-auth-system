@@ -119,15 +119,14 @@ export const Login = (props) => {
                     </div>
                     <div className='flex flex-row justify-center items-center space-x-5'>
                     <GoogleLogin clientId={client_id}
-    render={renderProps => (
-      <button onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="/assets/Google.svg" alt="" className='cursor-pointer' /></button>
-    )}
-    buttonText="Login"
-    onSuccess={redirectLogin}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-    redirectUri='https://authentication-r92t.onrender.com/'
-    />
+                        render={renderProps => (
+                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="/assets/Google.svg" alt="" className='cursor-pointer' /></button>
+                        )}
+                        buttonText="Login"
+                        onSuccess={redirectLogin}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
                         
                     </div>
                     <div className='text-sm space-x-2 text-center text-[#828282]'>
