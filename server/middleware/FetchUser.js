@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const fetchuser = (req,res,next)=>{
     
+    //validating user using a valid token
     const token = req.header("authentication-token");
     if(!token){
         res.status(401).send({"error":"Please authenticate using a valid token!"})

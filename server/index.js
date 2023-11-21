@@ -11,5 +11,5 @@ connecttodb();
 app.use('/api/auth', Router);
 
 app.listen(port,()=>{
-    console.log("Listening to Port-",port);
+    console.log("Listening to Port 5000");
 });
